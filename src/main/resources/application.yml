@@ -1,0 +1,59 @@
+server:
+  port: '8082'
+
+spring:
+  profiles:
+    active: qa
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to Spring boot
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to Spring boot
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to Spring boot
+
+
